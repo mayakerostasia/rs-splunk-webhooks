@@ -1,6 +1,6 @@
 use anyhow::Error;
 use config::Config;
-use serde::{Deserialize, Serialize};
+use serde::Deserialize;
 
 pub fn config() -> Result<SplunkWebhookSettings, Error> {
     let source =
