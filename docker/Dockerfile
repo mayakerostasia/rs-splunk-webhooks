@@ -2,6 +2,8 @@ FROM ghcr.io/bluebastion/dev-bb-rs-builder:v1.0.0 as webhook
 ARG RUST_BIN="rs-splunk-webhook"
 ENV RUST_BIN=$RUST_BIN
 ENV RUST_LOG="debug"
+ENV SERVICE_NAME="rs-splunk-webhook"
+ENV SERVICE_VERSION="0.0"
 RUN install -d -o 10001 -g 10001 /app
 RUN install -d -o 10001 -g 10001 /app/logs
 COPY --chown=10001:10001 --chmod=0744 ./release/$RUST_BIN /usr/local/bin/$RUST_BIN
