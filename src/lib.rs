@@ -1,9 +1,13 @@
-use std::collections::HashMap;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
+use std::collections::HashMap;
 
 use anyhow::Error;
-use axum::{http::StatusCode, routing::{get, post}, Json, Router};
+use axum::{
+    http::StatusCode,
+    routing::{get, post},
+    Json, Router,
+};
 use bb_lib_http_listener::Server;
 use conf::config;
 
@@ -16,10 +20,12 @@ async fn root_handler() -> StatusCode {
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct SplunkWebhook {
-    result: HashMap<String, Value>
+    result: HashMap<String, Value>,
 }
 
-async fn webhook_handler(Json(payload): Json<SplunkWebhook>) -> Result<StatusCode, (StatusCode, String)> {
+async fn webhook_handler(
+    Json(payload): Json<SplunkWebhook>,
+) -> Result<StatusCode, (StatusCode, String)> {
     eprintln!("Payload received -> \n {:#?}", payload);
     Ok(StatusCode::OK)
 }
