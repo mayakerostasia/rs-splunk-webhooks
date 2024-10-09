@@ -3628,6 +3628,7 @@ dependencies = [
  "bb-lib-http-listener",
  "bb-lib-surreal-client",
  "config",
+ "lazy_static",
  "serde",
  "serde_json",
  "tokio",

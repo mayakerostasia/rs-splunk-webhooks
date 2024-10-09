@@ -1,43 +1,33 @@
-use serde::{Deserialize, Serialize};
-use serde_json::Value;
-use std::collections::HashMap;
-
 use anyhow::Error;
 use axum::{
-    http::StatusCode,
     routing::{get, post},
-    Json, Router,
+    Router,
 };
 use bb_lib_http_listener::Server;
-use conf::config;
+use bb_lib_surreal_client::{connect, setup, DbGuard};
+use handlers::{root_handler, webhook_handler};
 
 mod conf;
+mod schema;
+mod handlers;
+mod statics;
 
-async fn root_handler() -> StatusCode {
-    eprintln!("Root Handler HIT");
-    StatusCode::OK
-}
-
-#[derive(Debug, Serialize, Deserialize)]
-pub struct SplunkWebhook {
-    result: HashMap<String, Value>,
-}
-
-async fn webhook_handler(
-    Json(payload): Json<SplunkWebhook>,
-) -> Result<StatusCode, (StatusCode, String)> {
-    eprintln!("Payload received -> \n {:#?}", payload);
-    Ok(StatusCode::OK)
+pub async fn connect_to_db() -> Result<DbGuard, Error> {
+    let db_cfg = setup();
+    let db_guard = connect(&db_cfg).await?;
+    Ok(db_guard)
 }
 
 pub async fn run_server() -> Result<(), Error> {
-    let config = config()?;
+    let conf = &statics::CONF;
+    let _db = connect_to_db().await?;
+
     let router = Router::new()
         .route("/", get(root_handler))
         .route("/", post(webhook_handler));
 
-    let server = Server::new(&config.bind_addr);
+    let server = Server::new(&conf.bind_addr);
+    eprintln!("Server listening on {}", &conf.bind_addr);
     server.listen(Some(router)).await?;
-
     Ok(())
 }
