@@ -8,8 +8,8 @@ use bb_lib_surreal_client::{connect, setup, DbGuard};
 use handlers::{root_handler, webhook_handler};
 
 mod conf;
-mod schema;
 mod handlers;
+mod schema;
 mod statics;
 
 pub async fn connect_to_db() -> Result<DbGuard, Error> {
