@@ -23,7 +23,7 @@ impl<'a> From<&'a mut SplunkWebhook> for Record<SplunkWebhook> {
 
 impl From<SplunkWebhook> for Record<SplunkWebhook> {
     fn from(value: SplunkWebhook) -> Self {
-        Record::new(&CONF.hash_table, None, Some(value))
+        Record::new(&CONF.db_table, None, Some(value))
     }
 }
 

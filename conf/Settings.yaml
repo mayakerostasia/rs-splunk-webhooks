@@ -1,2 +1,2 @@
-bind_addr: 0.0.0.0:3000
-hash_table: hash_edl
+bind_addr: 0.0.0.0:3010
+db_table: splunk_webhook

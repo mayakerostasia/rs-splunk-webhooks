@@ -13,5 +13,5 @@ pub fn config() -> Result<SplunkWebhookSettings, Error> {
 #[derive(Debug, Clone, Deserialize)]
 pub struct SplunkWebhookSettings {
     pub bind_addr: String,
-    pub hash_table: String,
+    pub db_table: String,
 }
