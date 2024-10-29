@@ -6,6 +6,7 @@ use axum::{
 use bb_lib_http_listener::Server;
 use bb_lib_surreal_client::{connect, setup, DbGuard};
 use handlers::{root_handler, webhook_handler};
+use tracing::debug;
 
 mod conf;
 mod handlers;
@@ -27,7 +28,7 @@ pub async fn run_server() -> Result<(), Error> {
         .route("/", post(webhook_handler));
 
     let server = Server::new(&conf.bind_addr);
-    eprintln!("Server listening on {}", &conf.bind_addr);
+    debug!("Server listening on {}", &conf.bind_addr);
     server.listen(Some(router)).await?;
     Ok(())
 }
