@@ -5,6 +5,7 @@ edition = "2021"
 
 [dependencies]
 bb-lib-tracing = { git = "git+ssh://github.com/BlueBastion/DEV-bb-lib-bastion.git", version = "2.0.2" }
+bb-lib-metrics = { git = "git+ssh://github.com/BlueBastion/DEV-bb-lib-bastion.git", version = "2.0.2" }
 bb-lib-surreal-client = { git = "git+ssh://github.com/BlueBastion/DEV-bb-lib-bastion.git", version = "2.0.2" }
 bb-lib-http-listener = { git = "git+ssh://github.com/BlueBastion/DEV-bb-lib-bastion.git", version = "2.0.2" }
 anyhow = "1.0.89"
