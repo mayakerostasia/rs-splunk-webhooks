@@ -6,7 +6,6 @@ use tracing::debug;
 async fn main() -> Result<(), Error> {
     bb_lib_metrics::init_metrics().await?;
     let _otel = bb_lib_tracing::initialize()?;
-    let _trace_guard = bb_lib_tracing::initialize()?;
     debug!("Starting Server");
     run_server().await?;
     Ok(())
