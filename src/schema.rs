@@ -1,5 +1,5 @@
 use crate::statics::CONF;
-use bb_lib_surreal_client::{Record, Storable};
+use bb_lib_surreal_client::{prelude::RecordIdKey, Record, Storable};
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use std::collections::HashMap;
@@ -23,7 +23,12 @@ impl<'a> From<&'a mut SplunkWebhook> for Record<SplunkWebhook> {
 
 impl From<SplunkWebhook> for Record<SplunkWebhook> {
     fn from(value: SplunkWebhook) -> Self {
-        Record::new(&CONF.db_table, None, Some(value))
+        let time = value
+            .result
+            .get("_time")
+            .expect("No `_time` value")
+            .to_string();
+        Record::new(&CONF.db_table, Some(RecordIdKey::from(time)), Some(value))
     }
 }
 
