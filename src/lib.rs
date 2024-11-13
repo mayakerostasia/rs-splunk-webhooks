@@ -1,8 +1,9 @@
 use anyhow::Error;
-use axum::{routing::get, Router};
+use axum::{routing::post, Router};
 use bb_lib_http_listener::Server;
 use bb_lib_surreal_client::{connect, setup, DbGuard};
-use handlers::{root_handler, webhook_handler};
+// use handlers::{root_handler, webhook_handler};
+use handlers::webhook_handler;
 use tracing::debug;
 
 mod conf;
