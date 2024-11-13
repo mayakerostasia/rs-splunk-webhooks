@@ -20,7 +20,7 @@ pub async fn run_server() -> Result<(), Error> {
     let conf = &statics::CONF;
     let _db = connect_to_db().await?;
 
-    let router = Router::new().route("/*pth", get(root_handler).post(webhook_handler));
+    let router = Router::new().route("/", post(webhook_handler));
 
     let server = Server::new(&conf.bind_addr);
     debug!("Server listening on {}", &conf.bind_addr);
