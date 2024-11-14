@@ -6,7 +6,11 @@ use std::collections::HashMap;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct SplunkWebhook {
-    #[serde(flatten)]
+    sid: String,
+    search_name: String,
+    app: String,
+    owner: String,
+    results_link: String,
     result: HashMap<String, Value>,
 }
 
