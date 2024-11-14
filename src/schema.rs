@@ -1,16 +1,17 @@
 use crate::statics::CONF;
 use bb_lib_surreal_client::{prelude::RecordIdKey, Record, Storable};
 use serde::{Deserialize, Serialize};
-use serde_json::Value;
+// use serde_json::Value;
 use std::collections::HashMap;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct SplunkWebhook {
-    // sid: String,
-    // search_name: String,
-    // app: String,
-    // owner: String,
-    // results_link: String,
+    sid: Option<String>,
+    search_name: Option<String>,
+    app: Option<String>,
+    owner: Option<String>,
+    results_link: Option<String>,
+    #[serde(flatten)]
     result: HashMap<String, String>,
 }
 
