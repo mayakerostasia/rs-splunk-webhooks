@@ -12,7 +12,7 @@ pub struct SplunkWebhook {
     owner: Option<String>,
     results_link: Option<String>,
     #[serde(flatten)]
-    result: HashMap<String, String>,
+    result: HashMap<String, Value>,
 }
 
 impl<'a> From<&'a SplunkWebhook> for Record<SplunkWebhook> {
