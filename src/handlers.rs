@@ -1,7 +1,7 @@
 // use crate::schema::SplunkWebhook;
 use axum::http::{HeaderMap, Method, StatusCode};
 // use bb_lib_surreal_client::Storable;
-use tracing::debug;
+// use tracing::debug;
 
 // pub async fn root_handler() -> StatusCode {
 //     debug!("Root Handler HIT");
