@@ -11,7 +11,6 @@ pub struct SplunkWebhook {
     app: Option<String>,
     owner: Option<String>,
     results_link: Option<String>,
-    #[serde(flatten)]
     result: HashMap<String, Value>,
 }
 
