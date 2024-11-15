@@ -16,8 +16,7 @@ pub async fn webhook_handler(
 ) -> Result<StatusCode, (StatusCode, String)> {
     eprintln!("Method: {}", method);
     eprintln!("Headers: {:#?}", headers);
-
-    debug!("Payload received -> \n {:#?}", payload);
+    eprintln!("Payload received -> \n {:#?}", payload);
     // match payload.save().await {
     //     Ok(webhook) => {
     //         debug!("Webhook Stored! -> {:#?}", webhook);
