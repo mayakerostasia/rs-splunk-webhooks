@@ -1,4 +1,5 @@
 // use crate::schema::SplunkWebhook;
+use axum::body::Bytes;
 use axum::http::{HeaderMap, Method, StatusCode};
 // use bb_lib_surreal_client::Storable;
 // use tracing::debug;
@@ -11,12 +12,16 @@ use axum::http::{HeaderMap, Method, StatusCode};
 pub async fn webhook_handler(
     method: Method,
     headers: HeaderMap,
-    payload: String,
+    payload: Bytes,
     // Json(payload): Json<SplunkWebhook>,
 ) -> Result<StatusCode, (StatusCode, String)> {
     eprintln!("Method: {}", method);
     eprintln!("Headers: {:#?}", headers);
     eprintln!("Payload received -> \n {:#?}", payload);
+    eprintln!(
+        "Bytes to String -> \n {:#?}",
+        serde_json::to_string(&payload)
+    );
     // match payload.save().await {
     //     Ok(webhook) => {
     //         debug!("Webhook Stored! -> {:#?}", webhook);
