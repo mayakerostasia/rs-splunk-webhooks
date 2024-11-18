@@ -28,6 +28,6 @@ pub async fn run_server() -> Result<(), Error> {
 
     let server = Server::new(&conf.bind_addr);
     debug!("Server listening on {}", &conf.bind_addr);
-    server.listen(Some(router)).await?;
+    server.listen(Some(router), 2000, false).await?;
     Ok(())
 }
