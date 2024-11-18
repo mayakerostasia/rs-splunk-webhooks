@@ -552,7 +552,7 @@ checksum = "8c3c1a368f70d6cf7302d78f8f7093da241fb8e8807c05cc9e51a125895a6d5b"
 [[package]]
 name = "bb-lib-config"
 version = "2.0.2"
-source = "git+git+ssh://github.com/BlueBastion/DEV-bb-lib-bastion.git#371b17b4337e862bb877c131fa1904afc92ca47c"
+source = "git+git+ssh://github.com/BlueBastion/DEV-bb-lib-bastion.git#e14b0b6cbe0bba5ea5feef2ac038d018c4b77b90"
 dependencies = [
  "anyhow",
  "clap",
@@ -564,7 +564,7 @@ dependencies = [
 [[package]]
 name = "bb-lib-http-listener"
 version = "2.0.2"
-source = "git+git+ssh://github.com/BlueBastion/DEV-bb-lib-bastion.git#371b17b4337e862bb877c131fa1904afc92ca47c"
+source = "git+git+ssh://github.com/BlueBastion/DEV-bb-lib-bastion.git#e14b0b6cbe0bba5ea5feef2ac038d018c4b77b90"
 dependencies = [
  "anyhow",
  "axum",
@@ -579,7 +579,7 @@ dependencies = [
 [[package]]
 name = "bb-lib-metrics"
 version = "2.0.2"
-source = "git+git+ssh://github.com/BlueBastion/DEV-bb-lib-bastion.git#371b17b4337e862bb877c131fa1904afc92ca47c"
+source = "git+git+ssh://github.com/BlueBastion/DEV-bb-lib-bastion.git#e14b0b6cbe0bba5ea5feef2ac038d018c4b77b90"
 dependencies = [
  "anyhow",
  "aws-lc-sys 0.21.2",
@@ -593,7 +593,7 @@ dependencies = [
 [[package]]
 name = "bb-lib-nats-streams"
 version = "2.0.2"
-source = "git+git+ssh://github.com/BlueBastion/DEV-bb-lib-bastion.git#371b17b4337e862bb877c131fa1904afc92ca47c"
+source = "git+git+ssh://github.com/BlueBastion/DEV-bb-lib-bastion.git#e14b0b6cbe0bba5ea5feef2ac038d018c4b77b90"
 dependencies = [
  "anyhow",
  "async-nats",
@@ -617,7 +617,7 @@ dependencies = [
 [[package]]
 name = "bb-lib-surreal-client"
 version = "2.0.2"
-source = "git+git+ssh://github.com/BlueBastion/DEV-bb-lib-bastion.git#371b17b4337e862bb877c131fa1904afc92ca47c"
+source = "git+git+ssh://github.com/BlueBastion/DEV-bb-lib-bastion.git#e14b0b6cbe0bba5ea5feef2ac038d018c4b77b90"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -641,7 +641,7 @@ dependencies = [
 [[package]]
 name = "bb-lib-tracing"
 version = "2.0.2"
-source = "git+git+ssh://github.com/BlueBastion/DEV-bb-lib-bastion.git#371b17b4337e862bb877c131fa1904afc92ca47c"
+source = "git+git+ssh://github.com/BlueBastion/DEV-bb-lib-bastion.git#e14b0b6cbe0bba5ea5feef2ac038d018c4b77b90"
 dependencies = [
  "anyhow",
  "lazy_static",
@@ -5145,9 +5145,9 @@ dependencies = [
 
 [[package]]
 name = "tower-http"
-version = "0.6.1"
+version = "0.6.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8437150ab6bbc8c5f0f519e3d5ed4aa883a83dd4cdd3d1b21f9482936046cb97"
+checksum = "403fa3b783d4b626a8ad51d766ab03cb6d2dbfc46b1c5d4448395e6628dc9697"
 dependencies = [
  "bitflags",
  "bytes",
